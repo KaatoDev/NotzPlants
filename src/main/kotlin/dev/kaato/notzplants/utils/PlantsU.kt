@@ -3,6 +3,7 @@ package dev.kaato.notzplants.utils
 import dev.kaato.notzplants.Main.Companion.cf
 import dev.kaato.notzplants.entities.enums.PlantsDrops
 import dev.kaato.notzplants.utils.MessageU.send
+import dev.kaato.notzplants.utils.RewardsU.getReward
 import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.block.Block
@@ -65,6 +66,8 @@ object PlantsU {
         else p.inventory.addItem(drop)
 
         block.data = 1
+
+        getReward(p, block)
 
         send(p, "actionBar", block.type, drop.amount, multi)
     }

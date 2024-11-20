@@ -1,5 +1,5 @@
 name: NotzPlants
-version: '0.1'
+version: '0.2'
 main: dev.kaato.notzplants.Main
 depend: [WorldGuard]
 
