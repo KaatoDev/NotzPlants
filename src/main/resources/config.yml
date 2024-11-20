@@ -1,16 +1,23 @@
+#  NETHER_WARTS
+#  CROPS
+#  CARROT
+#  POTATO
+
 prefix: "&6[&fRedeHyper&6]&f "
 
 dropItem: false
 
 enabled-messages:
-  actionBar: true
-  spamWarn: true
-  breakTip: true
+  - actionBar
+  - spamWarn
+  - breakTip
+  - rewardPrefix
 
 messages:
   actionBar: "&fVocê recebeu &a&l{quantity}&ax &f{item}"
   spamWarn: "&cNão clique tão rápido!"
   breakTip: "&eEspere até a planta crescer para colher! Caso queira removê-la, quebre-a agachando."
+  rewardPrefix: "&aPlanta da sorte!"
 
 block-worlds:
   - 'world'
@@ -25,3 +32,29 @@ multipliers:
   - vip: 1.2
   - mvp: 1.4
   - mvp+: 1.6
+
+enabled-rewards:
+  - cash
+  - money
+
+rewards:
+  cash:
+    chance: 0.2
+    message: "&fVocê ganhou 5.000 de cash"
+    commands:
+      - "cash give $player 5000"
+    plants:
+      - NETHER_WARTS
+      - CROPS
+      - CARROT
+      - POTATO
+  money:
+    chance: 2.0
+    message: "&fVocê ganhou 5.000 de dinheiro"
+    commands:
+      - "money give $player 5000"
+    plants:
+      - NETHER_WARTS
+      - CROPS
+      - CARROT
+      - POTATO
