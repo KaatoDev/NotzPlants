@@ -13,14 +13,12 @@ import org.bukkit.entity.Player
 
 object MessageU {
     val messages = hashMapOf<String, String>()
-    val enabledMessages = hashMapOf<String, Boolean>()
 
     init {
         prefix = c(cf.getString("prefix"))
 
-        arrayOf("actionBar", "spamWarn", "breakTip").forEach {
+        cf.getStringList("enabled-messages").forEach {
             messages[it] = cf.getString("messages.$it")
-            enabledMessages[it] = cf.getBoolean("enabled-messages.$it")
         }
     }
 
@@ -33,15 +31,12 @@ object MessageU {
     }
 
     fun sendText(p: Player, txt: String) {
-        if (enabledMessages[txt] != true) return
-        val msg = messages[txt]?:""
+        val msg = messages[txt] ?: return
         send(p, msg)
     }
 
     fun send(p: Player, txt: String, item: Material, quantity: Int, multiplier: String) {
-        if (enabledMessages[txt] != true) return
-
-        var msg = (messages[txt] ?: "")
+        var msg = messages[txt] ?: return
         var plant = plants[item.name] ?: ""
 
         if (multiplier.isNotEmpty())
@@ -54,13 +49,8 @@ object MessageU {
     }
 
 
-    fun send(p: Player, txt: String, placeholders: HashMap<String, String>) {
-        var msg = (messages[txt] ?: "")
-        var plant = ""
-
-        placeholders.forEach {
-            msg.replace("{${it.key}}", it.value)
-        }
+    fun send(p: Player, txt: String, suffix: String) {
+        var msg = arrayOf((messages[txt] ?: ""), suffix).joinToString(separator = " ")
         send(p, msg)
     }
 
