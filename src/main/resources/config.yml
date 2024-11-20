@@ -1,0 +1,27 @@
+prefix: "&6[&fRedeHyper&6]&f "
+
+dropItem: false
+
+enabled-messages:
+  actionBar: true
+  spamWarn: true
+  breakTip: true
+
+messages:
+  actionBar: "&fVocê recebeu &a&l{quantity}&ax &f{item}"
+  spamWarn: "&cNão clique tão rápido!"
+  breakTip: "&eEspere até a planta crescer para colher! Caso queira removê-la, quebre-a agachando."
+
+block-worlds:
+  - 'world'
+
+items:
+  NETHER_WARTS: "&cfungos"
+  CROPS: "&etrigos"
+  CARROT: "&ccenouras"
+  POTATO: "&ebatatas"
+
+multipliers:
+  - vip: 1.2
+  - mvp: 1.4
+  - mvp+: 1.6

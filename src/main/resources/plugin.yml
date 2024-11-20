@@ -1,0 +1,9 @@
+name: NotzPlants
+version: '0.1'
+main: dev.kaato.notzplants.Main
+depend: [WorldGuard]
+
+permissions:
+  notzplants.admin:
+    description: admin
+    default: false
